@@ -10,42 +10,38 @@ jobs:
   pruebas-unitarias:
     runs-on: ubuntu-latest
     steps:
-      - name: 1. Descargar el código
+      - name: Descargar el código
         uses: actions/checkout@v4
 
-      - name: 2. Preparar entorno Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
-      - name: 3. Instalar Jest
+      - name: Instalar dependencias
         run: npm install
 
-      - name: 4. Ejecutar pruebas con Jest
+      - name: Ejecutar pruebas unitarias (Jest)
         run: npm test
-
-      - name: 5. Confirmar estado de pruebas exitosas
-        run: echo "¡Pruebas unitarias completadas y exitosas con éxito!"
 
   despliegue-web:
     needs: pruebas-unitarias
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Descargar código validado
         uses: actions/checkout@v4
 
-      - name: Empaquetar sitio web
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Subir artefacto web
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
 
-      - name: Publicar en GitHub Pages
+      - name: Desplegar en GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
