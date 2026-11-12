@@ -1,4 +1,4 @@
-# Taller Guiado: Introducción a CI/CD con GitHub Actions
+# Taller Guiado: Introducción a CI/CD con GitHub Actions.
 
 En esta práctica trabajarás con un flujo real de **Integración Continua (CI)** y **Despliegue Continuo (CD)**. Partirás de una calculadora web funcional cuyo código se prueba automáticamente con **Jest** y se publica en **GitHub Pages** cada vez que guardas cambios.
 
