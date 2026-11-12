@@ -24,7 +24,8 @@ jobs:
       - name: 4. Ejecutar pruebas con Jest
         run: npm test
 
-      # TODO (Estudiante): Agrega aquí el paso 5 para confirmar el estado
+      - name: 5. Confirmar estado de pruebas exitosas
+        run: echo "¡Pruebas unitarias completadas y exitosas con éxito!"
 
   despliegue-web:
     needs: pruebas-unitarias
