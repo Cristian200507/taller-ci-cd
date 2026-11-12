@@ -9,5 +9,10 @@ describe('Pruebas de la Calculadora', () => {
     expect(multiplicar(2, 3)).toBe(6);
   });
 
-  // TODO (Estudiante): Agrega aquí los dos tests para dividir(a, b)
-});
+  test('divide 10 / 2 para igualar 5', () => {
+  expect(dividir(10, 2)).toBe(5);
+  });
+
+  test('retorna mensaje de error al dividir entre cero', () => {
+  expect(dividir(10, 0)).toBe("Error: división por cero");
+  });
