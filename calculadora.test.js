@@ -1,4 +1,4 @@
-const { sumar, multiplicar } = require('./calculadora');
+const { sumar, multiplicar, dividir } = require('./calculadora');
 
 describe('Pruebas de la Calculadora', () => {
   test('sumar 2 + 3 debe devolver 5', () => {
@@ -10,9 +10,10 @@ describe('Pruebas de la Calculadora', () => {
   });
 
   test('divide 10 / 2 para igualar 5', () => {
-  expect(dividir(10, 2)).toBe(5);
+    expect(dividir(10, 2)).toBe(5);
   });
 
   test('retorna mensaje de error al dividir entre cero', () => {
-  expect(dividir(10, 0)).toBe("Error: división por cero");
+    expect(dividir(10, 0)).toBe("Error: división por cero");
   });
+});
